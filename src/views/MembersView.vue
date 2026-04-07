@@ -8,6 +8,7 @@ import { useVisitorStore } from '@/stores/visitorStore'
 const { t, locale } = useI18n()
 const time = useTimeAware()
 const store = useVisitorStore()
+const BASE_URL = import.meta.env.BASE_URL
 
 const visitorTz = Intl.DateTimeFormat().resolvedOptions().timeZone || '██████'
 
@@ -25,15 +26,15 @@ interface Member {
 }
 
 const members: Member[] = [
-  { id: 1, codename: 'Kai-Chun Cheng', joinDate: '1998-03-07', status: 'active', specialty: 'Radio Signal Analysis', specialtyZH: '無線電訊號分析', lastSeen: '2024-██-██', note: 'Founding member, current administrator. [Identity unverifiable — original records modified 2001-03-17]', noteZH: '創始成員，現任管理員。【身份無法核實——原始記錄於 2001-03-17 遭修改】', photo: '/img/members/kaichun.jpg' },
-  { id: 2, codename: 'Maria Brown', joinDate: '1998-03-07', status: 'active', specialty: 'Visual Observation', specialtyZH: '目視觀測', lastSeen: '2024-██-██', photo: '/img/members/maria.jpg' },
-  { id: 3, codename: 'Jun Watanabe', joinDate: '1998-05-14', status: 'active', specialty: 'EM Spectrum Monitoring', specialtyZH: '電磁頻譜監測', lastSeen: '2023-██-██', photo: '/img/members/jun.jpg' },
-  { id: 4, codename: 'Sonia Vasquez', joinDate: '1998-09-03', status: 'active', specialty: 'Astronomical Photography', specialtyZH: '天文攝影', lastSeen: '2024-██-██', note: 'One of two founding members who conducted sustained observational research. Attended all major field sessions.', noteZH: '少數真正持續投入研究的創始成員之一。出席所有重要野外觀測活動。', photo: '/img/members/sonia.jpg' },
-  { id: 5, codename: 'Thomas Lin', joinDate: '1999-01-21', status: 'active', specialty: 'Anomaly Documentation', specialtyZH: '異常現象記錄', lastSeen: '2022-██-██', photo: '/img/members/thomas.jpg' },
-  { id: 6, codename: 'Priya Sharma', joinDate: '1999-06-30', status: 'active', specialty: 'Audio Signal Analysis', specialtyZH: '音頻訊號分析', lastSeen: '2024-██-██', photo: '/img/members/priya.jpg' },
-  { id: 7, codename: 'David James Mercer', joinDate: '1999-11-11', status: 'active', specialty: 'Gravitational Anomalies', specialtyZH: '重力異常研究', lastSeen: '2023-██-██', photo: '/img/members/david.jpg' },
-  { id: 8, codename: 'Mia Harlow', joinDate: '2000-02-29', status: 'sealed', specialty: 'Signal Tracking', specialtyZH: '訊號追蹤', lastSeen: '2004-██-██', note: "File sealed 2004. Final transmission recovered — see /signal/038. Currently operating as 'Records Unit' designation: Mia H-unit.", noteZH: '檔案已於2004年封存。最後傳輸記錄已恢復——詳見 /signal/038。目前以「記錄員單元」代號：Mia H單元 持續運作。' },  { id: 9, codename: 'Yi-Ling Wu', joinDate: '2000-07-07', status: 'active', specialty: 'Mirror Reflection Phenomena', specialtyZH: '鏡面反射現象', lastSeen: '2024-██-██', photo: '/img/members/yiling.jpg' },
-  { id: 10, codename: 'Ethan Johnson', joinDate: '2001-01-01', status: 'active', specialty: 'Temporal Anomaly Recording', specialtyZH: '時間異常記錄', lastSeen: '2024-██-██', photo: '/img/members/ethan.jpg' },
+  { id: 1, codename: 'Kai-Chun Cheng', joinDate: '1998-03-07', status: 'active', specialty: 'Radio Signal Analysis', specialtyZH: '無線電訊號分析', lastSeen: '2024-██-██', note: 'Founding member, current administrator. [Identity unverifiable — original records modified 2001-03-17]', noteZH: '創始成員，現任管理員。【身份無法核實——原始記錄於 2001-03-17 遭修改】', photo: BASE_URL + 'img/members/kaichun.jpg' },
+  { id: 2, codename: 'Maria Brown', joinDate: '1998-03-07', status: 'active', specialty: 'Visual Observation', specialtyZH: '目視觀測', lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/maria.jpg' },
+  { id: 3, codename: 'Jun Watanabe', joinDate: '1998-05-14', status: 'active', specialty: 'EM Spectrum Monitoring', specialtyZH: '電磁頻譜監測', lastSeen: '2023-██-██', photo: BASE_URL + 'img/members/jun.jpg' },
+  { id: 4, codename: 'Sonia Vasquez', joinDate: '1998-09-03', status: 'active', specialty: 'Astronomical Photography', specialtyZH: '天文攝影', lastSeen: '2024-██-██', note: 'One of two founding members who conducted sustained observational research. Attended all major field sessions.', noteZH: '少數真正持續投入研究的創始成員之一。出席所有重要野外觀測活動。', photo: BASE_URL + 'img/members/sonia.jpg' },
+  { id: 5, codename: 'Thomas Lin', joinDate: '1999-01-21', status: 'active', specialty: 'Anomaly Documentation', specialtyZH: '異常現象記錄', lastSeen: '2022-██-██', photo: BASE_URL + 'img/members/thomas.jpg' },
+  { id: 6, codename: 'Priya Sharma', joinDate: '1999-06-30', status: 'active', specialty: 'Audio Signal Analysis', specialtyZH: '音頻訊號分析', lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/priya.jpg' },
+  { id: 7, codename: 'David James Mercer', joinDate: '1999-11-11', status: 'active', specialty: 'Gravitational Anomalies', specialtyZH: '重力異常研究', lastSeen: '2023-██-██', photo: BASE_URL + 'img/members/david.jpg' },
+  { id: 8, codename: 'Mia Harlow', joinDate: '2000-02-29', status: 'sealed', specialty: 'Signal Tracking', specialtyZH: '訊號追蹤', lastSeen: '2004-██-██', note: "File sealed 2004. Final transmission recovered — see /signal/038. Currently operating as 'Records Unit' designation: Mia H-unit.", noteZH: '檔案已於2004年封存。最後傳輸記錄已恢復——詳見 /signal/038。目前以「記錄員單元」代號：Mia H單元 持續運作。' },  { id: 9, codename: 'Yi-Ling Wu', joinDate: '2000-07-07', status: 'active', specialty: 'Mirror Reflection Phenomena', specialtyZH: '鏡面反射現象', lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/yiling.jpg' },
+  { id: 10, codename: 'Ethan Johnson', joinDate: '2001-01-01', status: 'active', specialty: 'Temporal Anomaly Recording', specialtyZH: '時間異常記錄', lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/ethan.jpg' },
   { id: 11, codename: '██████', joinDate: '████-██-██', status: 'sealed', specialty: '██████', lastSeen: '████-██-██', note: 'Assimilation anomaly — initial process failed. Forced integration subsequently completed. Source: CYCLE_07. Identity records purged.', noteZH: '同化異常——初次程序失敗。強制整合隨後完成。來源：CYCLE_07。身份記錄已全面抹除。' },
   { id: 12, codename: '████', joinDate: '████-██-██', status: 'sealed', specialty: '██████', lastSeen: '████-██-██', note: 'Assimilation anomaly — initial process failed. Forced integration subsequently completed. Source: CYCLE_07. Identity records purged.', noteZH: '同化異常——初次程序失敗。強制整合隨後完成。來源：CYCLE_07。身份記錄已全面抹除。' },
   { id: 13, codename: '???', joinDate: '████-██-██', status: 'unknown', specialty: '██████████████', lastSeen: '██████', note: undefined },
