@@ -3,6 +3,7 @@ import { ref, onMounted, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale } = useI18n()
+const BASE_URL = import.meta.env.BASE_URL
 
 interface GuestEntry {
   id: string
@@ -278,7 +279,7 @@ onMounted(loadEntries)
 
     <!-- Alien image -->
     <img
-      src="/img/guestbook/alien.png"
+      :src="BASE_URL + 'img/guestbook/alien.png'"
       class="alien-img"
       :class="{ 'alien-wiggle': alienWiggle, 'alien-open': formVisible }"
       @click="handleAlienClick"
@@ -293,7 +294,7 @@ onMounted(loadEntries)
   <!-- Envelope flying animation (portal-level overlay) -->
   <Transition name="envelope-anim">
     <div v-if="envelopeFlying" class="envelope-container">
-      <img src="/img/guestbook/envelope.png" class="envelope-fly" alt="sending" />
+      <img :src="BASE_URL + 'img/guestbook/envelope.png'" class="envelope-fly" alt="sending" />
     </div>
   </Transition>
 

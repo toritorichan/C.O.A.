@@ -10,6 +10,7 @@ const router = useRouter()
 const { t, locale } = useI18n()
 const { playLowFreq } = useAudio()
 const store = useVisitorStore()
+const BASE_URL = import.meta.env.BASE_URL
 
 const memberId = computed(() => Number(route.params.id))
 const isHiddenMember = computed(() => memberId.value === 13)
@@ -65,7 +66,7 @@ const members: Member[] = [
     id: 1, codename: 'Kai-Chun Cheng', joinDate: '1998-03-07', status: 'active',
     specialty: 'Radio Signal Analysis', specialtyZH: '無線電訊號分析',
     lastSeen: '2024-██-██', note: 'Founding member, current administrator. [Identity unverifiable — original records modified 2001-03-17]', noteZH: '創始成員，現任管理員。【身份無法核實——原始記錄於 2001-03-17 遭修改】',
-    photo: '/img/members/kaichun.jpg',
+    photo: BASE_URL + 'img/members/kaichun.jpg',
     food: 'Instant noodles (cold)', foodZH: '泡麵（冷的）',
     hobbies: 'Amateur radio, solo stargazing', hobbiesZH: '業餘無線電、獨自觀星',
     message: 'Please submit observation logs on time. The system does not send reminders after 03:00.',
@@ -79,7 +80,7 @@ const members: Member[] = [
   {
     id: 2, codename: 'Maria Brown', joinDate: '1998-03-07', status: 'active',
     specialty: 'Visual Observation', specialtyZH: '目視觀測',
-    lastSeen: '2024-██-██', photo: '/img/members/maria.jpg',
+    lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/maria.jpg',
     food: 'Double-shot espresso', foodZH: '雙份濃縮咖啡',
     hobbies: 'Watercolor painting, meteor shower watching', hobbiesZH: '水彩畫、看流星雨',
     message: "I keep meaning to take a proper vacation. Somewhere without a clear sky.",
@@ -93,7 +94,7 @@ const members: Member[] = [
   {
     id: 3, codename: 'Jun Watanabe', joinDate: '1998-05-14', status: 'active',
     specialty: 'EM Spectrum Monitoring', specialtyZH: '電磁頻譜監測',
-    lastSeen: '2023-██-██', photo: '/img/members/jun.jpg',
+    lastSeen: '2023-██-██', photo: BASE_URL + 'img/members/jun.jpg',
     food: 'Takoyaki, specifically homemade', foodZH: '章魚燒，尤其是自己做的',
     hobbies: 'Building radios from spare parts, tabletop games', hobbiesZH: '用零件組裝無線電、桌遊',
     message: "My cat keeps staring at the corner of the room. I've checked. There's nothing there. She's been doing this for three years.",
@@ -107,7 +108,7 @@ const members: Member[] = [
   {
     id: 4, codename: 'Sonia Vasquez', joinDate: '1998-09-03', status: 'active',
     specialty: 'Astronomical Photography', specialtyZH: '天文攝影',
-    lastSeen: '2024-██-██', photo: '/img/members/sonia.jpg',
+    lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/sonia.jpg',
     food: 'Anything spicy, the spicier the better', foodZH: '辣的東西，越辣越好',
     hobbies: 'Long-exposure night photography, birdwatching', hobbiesZH: '長曝光夜間攝影、賞鳥',
     message: "I deleted Instagram. Too many algorithms, not enough sky.",
@@ -121,7 +122,7 @@ const members: Member[] = [
   {
     id: 5, codename: 'Thomas Lin', joinDate: '1999-01-21', status: 'active',
     specialty: 'Anomaly Documentation', specialtyZH: '異常現象記錄',
-    lastSeen: '2022-██-██', photo: '/img/members/thomas.jpg',
+    lastSeen: '2022-██-██', photo: BASE_URL + 'img/members/thomas.jpg',
     food: 'Green tea and plain rice crackers', foodZH: '綠茶和白米餅',
     hobbies: 'Typewriting, archiving physical documents', hobbiesZH: '打字機、實體文件歸檔',
     message: "I write everything down. Even the things I'm told not to write down. Especially those.",
@@ -135,7 +136,7 @@ const members: Member[] = [
   {
     id: 6, codename: 'Priya Sharma', joinDate: '1999-06-30', status: 'active',
     specialty: 'Audio Signal Analysis', specialtyZH: '音頻訊號分析',
-    lastSeen: '2024-██-██', photo: '/img/members/priya.jpg',
+    lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/priya.jpg',
     food: 'Cardamom chai, very sweet', foodZH: '小荳蔻奶茶，要很甜',
     hobbies: 'Classical sitar, recording ambient sound', hobbiesZH: '古典西塔琴、錄製環境聲音',
     message: "I genuinely cannot sleep without background noise. I used to think that was a bad habit.",
@@ -149,7 +150,7 @@ const members: Member[] = [
   {
     id: 7, codename: 'David James Mercer', joinDate: '1999-11-11', status: 'active',
     specialty: 'Gravitational Anomalies', specialtyZH: '重力異常研究',
-    lastSeen: '2023-██-██', photo: '/img/members/david.jpg',
+    lastSeen: '2023-██-██', photo: BASE_URL + 'img/members/david.jpg',
     food: "Shepherd's pie", foodZH: '牧羊人派',
     hobbies: 'Correspondence chess, reading theoretical physics', hobbiesZH: '通信西洋棋、閱讀理論物理',
     message: "I lost my favourite pen somewhere around 2013. I think about it more than I probably should.",
@@ -175,7 +176,7 @@ const members: Member[] = [
   {
     id: 9, codename: 'Yi-Ling Wu', joinDate: '2000-07-07', status: 'active',
     specialty: 'Mirror Reflection Phenomena', specialtyZH: '鏡面反射現象',
-    lastSeen: '2024-██-██', photo: '/img/members/yiling.jpg',
+    lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/yiling.jpg',
     food: 'Sesame tang yuan, especially at winter solstice', foodZH: '芝麻湯圓，尤其是冬至的時候',
     hobbies: 'Calligraphy, rewatching old films alone at night', hobbiesZH: '書法、深夜獨自重看舊電影',
     message: "My grandmother said time moves differently for people who pay attention. I thought she was being poetic.",
@@ -189,7 +190,7 @@ const members: Member[] = [
   {
     id: 10, codename: 'Ethan Johnson', joinDate: '2001-01-01', status: 'active',
     specialty: 'Temporal Anomaly Recording', specialtyZH: '時間異常記錄',
-    lastSeen: '2024-██-██', photo: '/img/members/ethan.jpg',
+    lastSeen: '2024-██-██', photo: BASE_URL + 'img/members/ethan.jpg',
     food: 'Black coffee, no sugar, extremely hot', foodZH: '黑咖啡，不加糖，要非常燙',
     hobbies: 'Collecting vintage mechanical watches, journaling', hobbiesZH: '收集古董機械錶、寫日記',
     message: "Does anyone else feel like some weeks are longer than others? Not metaphorically.",

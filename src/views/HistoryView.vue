@@ -6,6 +6,7 @@ import { useVisitorStore } from '@/stores/visitorStore'
 import { useScrollReveal } from '@/composables/useScrollReveal'
 const { t, locale } = useI18n()
 const store = useVisitorStore()
+const BASE_URL = import.meta.env.BASE_URL
 const intensity = computed((): 0 | 1 | 2 => {
   if (store.visitCount >= 13) return 2
   if (store.visitCount >= 7) return 1
@@ -148,7 +149,7 @@ onUnmounted(() => {
               <div class="obs-photo-wrap">
                 <img
                   ref="photo1120El"
-                  :src="photo1120Swapped ? '/img/history/1120-1c.jpg' : '/img/history/1120.jpg'"
+                  :src="photo1120Swapped ? BASE_URL + 'img/history/1120-1c.jpg' : BASE_URL + 'img/history/1120.jpg'"
                   alt="1999-11-20 first observation"
                   class="obs-photo"
                   :class="{ 'photo-swapped': photo1120Swapped }"
@@ -163,7 +164,7 @@ onUnmounted(() => {
             <div>
               <div class="obs-photo-wrap">
                 <img
-                  :src="'/img/history/1120-2.jpg'"
+                  :src="BASE_URL + 'img/history/1120-2.jpg'"
                   alt="1999-11-20 first observation 2"
                   class="obs-photo"
                 />
@@ -218,7 +219,7 @@ onUnmounted(() => {
             <div class="obs-photo-wrap">
               <img
                 ref="photo1231El"
-                :src="photo1231Swapped ? '/img/history/1231-1c.jpg' : '/img/history/1231.jpg'"
+                :src="photo1231Swapped ? BASE_URL + 'img/history/1231-1c.jpg' : BASE_URL + 'img/history/1231.jpg'"
                 alt="2000-12-31 special observation"
                 class="obs-photo"
                 :class="{ 'photo-swapped': photo1231Swapped }"
