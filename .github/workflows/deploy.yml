@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Build
-        run: npm run build
+        run: npx vite build
 
       # Vue Router history mode 需要 404.html 複製一份 index.html
       - name: Copy index.html to 404.html
