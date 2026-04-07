@@ -1,0 +1,290 @@
+/* ============================================================
+   ANALOG HORROR ALIEN FAN CLUB — GLITCH EFFECTS
+   All animations, overlays, and screen-horror utilities
+   ============================================================ */
+
+/* ============================================================
+   KEYFRAMES
+   ============================================================ */
+
+/* Clip through screen sections — 10 steps */
+@keyframes glitch-clip {
+  0%   { clip-path: inset(5% 0 90% 0); }
+  10%  { clip-path: inset(30% 0 55% 0); }
+  20%  { clip-path: inset(72% 0 10% 0); }
+  30%  { clip-path: inset(18% 0 74% 0); }
+  40%  { clip-path: inset(60% 0 32% 0); }
+  50%  { clip-path: inset(88% 0 3% 0); }
+  60%  { clip-path: inset(44% 0 48% 0); }
+  70%  { clip-path: inset(12% 0 80% 0); }
+  80%  { clip-path: inset(96% 0 1% 0); }
+  90%  { clip-path: inset(38% 0 56% 0); }
+  100% { clip-path: inset(5% 0 90% 0); }
+}
+
+/* Horizontal skew distortion */
+@keyframes glitch-skew {
+  0%   { transform: skewX(0deg); }
+  10%  { transform: skewX(-3deg); }
+  20%  { transform: skewX(3deg); }
+  30%  { transform: skewX(-2deg); }
+  40%  { transform: skewX(2deg); }
+  50%  { transform: skewX(-3deg); }
+  60%  { transform: skewX(0deg); }
+  70%  { transform: skewX(3deg); }
+  80%  { transform: skewX(-1deg); }
+  90%  { transform: skewX(1deg); }
+  100% { transform: skewX(0deg); }
+}
+
+/* RGB color split text-shadow cycling */
+@keyframes glitch-color {
+  0%   { text-shadow: -2px 0 #ff0000, 2px 0 #0000ff; }
+  20%  { text-shadow: 2px 0 #ff0000, -2px 0 #0000ff; }
+  40%  { text-shadow: -3px 0 #ff0000, 3px 0 #00ffff; }
+  60%  { text-shadow: 3px 0 #ff0000, -3px 0 #0000ff; }
+  80%  { text-shadow: -2px 0 #ff00ff, 2px 0 #00ff00; }
+  100% { text-shadow: -2px 0 #ff0000, 2px 0 #0000ff; }
+}
+
+/* Scan line position scroll */
+@keyframes scanline-scroll {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+/* Opacity flicker */
+@keyframes flicker {
+  0%   { opacity: 1; }
+  7%   { opacity: 0.7; }
+  10%  { opacity: 1; }
+  27%  { opacity: 1; }
+  30%  { opacity: 0.4; }
+  32%  { opacity: 1; }
+  58%  { opacity: 1; }
+  60%  { opacity: 0.6; }
+  62%  { opacity: 1; }
+  85%  { opacity: 1; }
+  87%  { opacity: 0.3; }
+  90%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* Idle / random small shake */
+@keyframes shake {
+  0%   { transform: translate(0, 0); }
+  10%  { transform: translate(-2px, 1px); }
+  20%  { transform: translate(1px, -2px); }
+  30%  { transform: translate(-1px, 2px); }
+  40%  { transform: translate(2px, -1px); }
+  50%  { transform: translate(-2px, 0px); }
+  60%  { transform: translate(0px, 2px); }
+  70%  { transform: translate(1px, -1px); }
+  80%  { transform: translate(-1px, 1px); }
+  90%  { transform: translate(2px, 0px); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Static noise via rapid background-position shift */
+@keyframes static-noise {
+  0%   { background-position: 0% 0%; }
+  10%  { background-position: 50% 30%; }
+  20%  { background-position: 20% 80%; }
+  30%  { background-position: 70% 10%; }
+  40%  { background-position: 10% 60%; }
+  50%  { background-position: 90% 40%; }
+  60%  { background-position: 30% 90%; }
+  70%  { background-position: 60% 20%; }
+  80%  { background-position: 80% 70%; }
+  90%  { background-position: 5% 50%; }
+  100% { background-position: 0% 0%; }
+}
+
+/* Corrupted text: spacing + skew chaos */
+@keyframes corrupted {
+  0%   { letter-spacing: 0px;   transform: skewX(0deg); }
+  10%  { letter-spacing: 4px;   transform: skewX(-3deg); }
+  20%  { letter-spacing: -2px;  transform: skewX(2deg); }
+  30%  { letter-spacing: 6px;   transform: skewX(-1deg); }
+  40%  { letter-spacing: 0px;   transform: skewX(3deg); }
+  50%  { letter-spacing: -4px;  transform: skewX(0deg); }
+  60%  { letter-spacing: 2px;   transform: skewX(-2deg); }
+  70%  { letter-spacing: 8px;   transform: skewX(1deg); }
+  80%  { letter-spacing: -2px;  transform: skewX(-3deg); }
+  90%  { letter-spacing: 0px;   transform: skewX(2deg); }
+  100% { letter-spacing: 0px;   transform: skewX(0deg); }
+}
+
+/* Blinking cursor */
+@keyframes blink-cursor {
+  0%   { opacity: 1; }
+  50%  { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Signal appear: fade in with upward drift */
+@keyframes signal-appear {
+  0%   { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Maintenance box-shadow color cycle */
+@keyframes maintenance-pulse {
+  0%   { box-shadow: 0 0 10px #ff0000, 0 0 20px #cc0000, 0 0 40px #880000; }
+  25%  { box-shadow: 0 0 4px #440000,  0 0 8px #330000,  0 0 16px #110000; }
+  50%  { box-shadow: 0 0 14px #ff0000, 0 0 28px #cc0000, 0 0 56px #880000; }
+  75%  { box-shadow: 0 0 2px #440000,  0 0 6px #330000,  0 0 12px #110000; }
+  100% { box-shadow: 0 0 10px #ff0000, 0 0 20px #cc0000, 0 0 40px #880000; }
+}
+
+/* ============================================================
+   GLITCH TEXT
+   ============================================================ */
+
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  animation:
+    glitch-clip  0.4s steps(1) infinite,
+    glitch-color 0.3s steps(1) infinite;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glitch-text::before {
+  animation:
+    glitch-clip 0.35s steps(1) infinite,
+    glitch-skew 0.5s steps(1) infinite;
+  clip-path: inset(20% 0 60% 0);
+  left: -2px;
+  filter: hue-rotate(90deg) brightness(1.5);
+  opacity: 0.8;
+}
+
+.glitch-text::after {
+  animation:
+    glitch-clip 0.45s steps(1) infinite reverse,
+    glitch-skew 0.6s steps(1) infinite reverse;
+  clip-path: inset(60% 0 15% 0);
+  left: 2px;
+  filter: hue-rotate(270deg) brightness(1.5);
+  opacity: 0.8;
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.flicker {
+  animation: flicker 3s infinite;
+}
+
+.static-bg {
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  animation: static-noise 0.08s steps(1) infinite;
+}
+
+/* ============================================================
+   OVERLAYS
+   ============================================================ */
+
+/* Signal / message overlay */
+.signal-message-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 10000;
+  font-family: 'Space Mono', monospace;
+  font-size: 15px;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 40px;
+  animation: signal-appear 0.3s ease both;
+  line-height: 2.2;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* Copy / right-click warning */
+.copy-warning {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #000000;
+  border: 2px solid #ff0000;
+  color: #ff0000;
+  padding: 20px 40px;
+  font-family: 'Space Mono', monospace;
+  font-size: 16px;
+  z-index: 10001;
+  animation: flicker 0.1s infinite;
+  text-align: center;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  max-width: 80vw;
+}
+
+/* Maintenance overlay */
+.maintenance-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 10002;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #ff0000;
+  font-family: "Press Start 2P", monospace;
+  gap: 24px;
+  text-align: center;
+  padding: 40px;
+  line-height: 2;
+}
+
+.maintenance-countdown {
+  font-size: 48px;
+  color: #ff0000;
+  animation: maintenance-pulse 1s infinite;
+  font-family: "Press Start 2P", monospace;
+}
+
+/* Transmission overlay */
+.transmission-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000;
+  z-index: 10003;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 40px;
+  line-height: 2.2;
+  white-space: pre-wrap;
+}
+
+/* ============================================================
+   CURSOR
+   ============================================================ */
+
+.blink-cursor::after {
+  content: "█";
+  animation: blink-cursor 0.7s steps(1) infinite;
+  margin-left: 2px;
+}

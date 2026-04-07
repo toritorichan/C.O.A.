@@ -1,0 +1,344 @@
+/* ============================================================
+   ANALOG HORROR ALIEN FAN CLUB — XP UI COMPONENTS
+   Windows XP Visual Language on Dark Substrate
+   ============================================================ */
+
+/* ---- XP Window ---- */
+.xp-window {
+  border: 2px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  background: #d4d0c8;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* ---- XP Title Bar ---- */
+.xp-titlebar {
+  background: linear-gradient(to right, #0a246a 0%, #3a6ea5 40%, #a6caf0 100%);
+  height: 28px;
+  color: #ffffff;
+  font-family: "Tahoma", "Arial", sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  justify-content: space-between;
+  user-select: none;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+.xp-titlebar-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+/* ---- XP Window Buttons ---- */
+.xp-btn-close,
+.xp-btn-min,
+.xp-btn-max {
+  width: 13px;
+  height: 13px;
+  font-size: 0;
+  line-height: 1;
+  border: 1px solid;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+  cursor: pointer;
+  font-family: "Tahoma", "Arial", sans-serif;
+  border-radius: 0;
+  position: relative;
+}
+/* Use pseudo-elements for uniform icon rendering */
+.xp-btn-min::before,
+.xp-btn-max::before,
+.xp-btn-close::before {
+  font-size: 8px;
+  line-height: 1;
+  display: block;
+  position: absolute;
+}
+.xp-btn-min::before { content: '_'; top: -1px; }
+.xp-btn-max::before { content: '□'; }
+.xp-btn-close::before { content: '×'; font-size: 9px; }
+.xp-btn-close:active,
+.xp-btn-min:active,
+.xp-btn-max:active {
+  border-top-color: #404040;
+  border-left-color: #404040;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+}
+
+.xp-btn-close {
+  background: linear-gradient(to bottom, #e06060 0%, #cc0000 50%, #990000 100%);
+  border-top-color: #ff8888;
+  border-left-color: #ff8888;
+  border-right-color: #660000;
+  border-bottom-color: #660000;
+  color: #ffffff;
+}
+.xp-btn-close:hover {
+  background: linear-gradient(to bottom, #ff8080 0%, #ee0000 50%, #aa0000 100%);
+}
+
+.xp-btn-min,
+.xp-btn-max {
+  background: linear-gradient(to bottom, #e0deda 0%, #c0bdb8 50%, #a0a09a 100%);
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  color: #000000;
+}
+.xp-btn-min:hover,
+.xp-btn-max:hover {
+  background: linear-gradient(to bottom, #f0efec 0%, #d0cdc8 50%, #b0b0aa 100%);
+}
+
+/* ---- XP Window Body ---- */
+.xp-window-body {
+  background: #f0f0f0;
+  padding: 14px 16px;
+}
+
+/* Dark context override for window body */
+.dark-context .xp-window-body,
+.xp-window-body.dark {
+  background: #0a0a0a;
+  color: #f0f0f0;
+}
+
+/* ---- XP Button ---- */
+.xp-button {
+  font-family: "Tahoma", sans-serif;
+  font-size: 11px;
+  padding: 4px 12px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #f0efec 0%, #d4d0c8 50%, #bab8b0 100%);
+  border: 1px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  color: #000000;
+  outline: none;
+  border-radius: 0;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6);
+}
+.xp-button:hover {
+  background: linear-gradient(to bottom, #ffffff 0%, #e4e0d8 50%, #cacac0 100%);
+}
+.xp-button:active {
+  background: linear-gradient(to bottom, #bab8b0 0%, #d4d0c8 100%);
+  border-top-color: #808080;
+  border-left-color: #808080;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  box-shadow: inset -1px -1px 0 rgba(255,255,255,0.6);
+}
+
+/* Dark context XP button */
+.dark-context .xp-button,
+.xp-button.dark {
+  background: linear-gradient(to bottom, #1a1a1a 0%, #0f0f0f 50%, #0a0a0a 100%);
+  color: #f0f0f0;
+  border-top-color: #005500;
+  border-left-color: #005500;
+  border-right-color: #001100;
+  border-bottom-color: #001100;
+  box-shadow: inset 1px 1px 0 rgba(0, 255, 65, 0.1);
+}
+.dark-context .xp-button:hover,
+.xp-button.dark:hover {
+  background: linear-gradient(to bottom, #222222 0%, #141414 50%, #0d0d0d 100%);
+  border-color: #f0f0f0;
+}
+.dark-context .xp-button:active,
+.xp-button.dark:active {
+  background: linear-gradient(to bottom, #0a0a0a 0%, #1a1a1a 100%);
+  border-top-color: #001100;
+  border-left-color: #001100;
+  border-right-color: #005500;
+  border-bottom-color: #005500;
+}
+
+/* ---- XP Navigation ---- */
+.xp-nav {
+  display: flex;
+  align-items: center;
+  background: #d4d0c8;
+  border-bottom: 2px solid #003300;
+  padding: 0 4px;
+}
+
+.xp-nav .nav-sep {
+  color: #888;
+  font-size: 10px;
+  padding: 0 2px;
+  user-select: none;
+  pointer-events: none;
+}
+
+.xp-nav.dark {
+  background: #0a0a0a;
+}
+
+.xp-nav a {
+  display: inline-block;
+  padding: 8px 14px;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.xp-nav a:hover {
+  background: #001100;
+  color: #00ff00;
+}
+.xp-nav a.router-link-active,
+.xp-nav a.active {
+  background: #001a00;
+  border-bottom: 2px solid #555555;
+  margin-bottom: -2px;
+}
+
+/* ---- XP Status Bar ---- */
+.xp-statusbar {
+  background: #c0c0c0;
+  border-top: 1px solid #003300;
+  padding: 2px 8px;
+  font-size: 10px;
+  color: #666666;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Share Tech Mono", monospace;
+}
+.xp-statusbar.dark {
+  background: #050505;
+  color: #005500;
+}
+
+/* ---- XP Progress Bar ---- */
+@keyframes shimmer {
+  0%   { background-position: -200px 0; }
+  100% { background-position: 200px 0; }
+}
+
+.xp-progress {
+  height: 16px;
+  background: #000000;
+  border: 1px solid #003300;
+  position: relative;
+  overflow: hidden;
+}
+.xp-progress-fill {
+  height: 100%;
+  background: #007700;
+  border-right: 1px solid #005500;
+}
+
+/* ---- Visitor Counter ---- */
+.visitor-counter {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 11px;
+  border: 1px inset #888888;
+  background: #000000;
+  color: #f0f0f0;
+  padding: 2px 6px;
+  cursor: default;
+  position: relative;
+  display: inline-block;
+}
+.visitor-counter:hover .counter-details {
+  display: block;
+}
+.counter-details {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 4px);
+  left: 0;
+  background: #000000;
+  border: 1px solid #003300;
+  padding: 8px;
+  font-size: 10px;
+  z-index: 100;
+  white-space: pre;
+  color: #f0f0f0;
+  min-width: 180px;
+  box-shadow: none;
+  border: 1px solid #005500;
+}
+
+/* ---- Censored Section ---- */
+.censored-section {
+  position: relative;
+}
+.censored-section .censored-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    #111111 0,
+    #111111 2px,
+    transparent 0,
+    transparent 8px
+  );
+  pointer-events: none;
+}
+
+/* ---- Member Card ---- */
+.member-card {
+  border: 1px solid #003300;
+  padding: 12px;
+  background: #050505;
+  margin-bottom: 8px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.member-photo {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border: 1px solid #003300;
+  filter: grayscale(100%) contrast(120%);
+  display: block;
+}
+.member-photo.forgotten {
+  filter: blur(10px) grayscale(100%);
+}
+.member-photo.forgotten:hover {
+  filter: blur(4px) grayscale(80%);
+}
+
+/* ---- Sealed ---- */
+.sealed {
+  opacity: 0.5;
+  position: relative;
+}
+.sealed::after {
+  content: "█ 已封存 █";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: #cc0000;
+  font-size: 14px;
+  font-family: "Share Tech Mono", monospace;
+  letter-spacing: 4px;
+  pointer-events: none;
+}

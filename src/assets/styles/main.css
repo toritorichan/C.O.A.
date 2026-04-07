@@ -1,0 +1,398 @@
+/* 如果你看到這裡，你已經是他們的觀察對象之一 */
+
+/* ============================================================
+   ANALOG HORROR ALIEN FAN CLUB — MAIN CSS
+   Windows XP / Y2K Dark Aesthetic
+   ============================================================ */
+
+/* ---- Custom Properties ---- */
+:root {
+  --color-bg:         #0a0a0a;
+  --color-primary:    #f0f0f0;
+  --color-secondary:  #888888;
+  --color-danger:     #ff0000;
+  --color-danger-dim: #cc0000;
+  --color-highlight:  #b388ff;
+  --color-chrome:     #d4d0c8;
+  --color-border:     #333333;
+  --color-visited:    #aaaaaa;
+  --color-selection-bg: #222222;
+  --font-mono:        "Space Mono", "Courier New", monospace;
+  --font-pixel:       "Press Start 2P", monospace;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0a0a0a;
+  color: #f0f0f0;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  min-height: 100vh;
+}
+
+/* ---- CRT Scan Lines (body::before) ---- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  opacity: 0.12;
+}
+
+/* ---- CRT Vignette (body::after) ---- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  opacity: 0.4;
+}
+
+/* ---- Film Grain Overlay ---- */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9997;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grain-noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grain-noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+  mix-blend-mode: screen;
+}
+
+/* ---- Scrollbar — Windows XP style ---- */
+::-webkit-scrollbar {
+  width: 17px;
+  background: #d4d0c8;
+}
+::-webkit-scrollbar-track {
+  background: #d4d0c8;
+  border-left: 1px solid #808080;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #e0deda 0%, #c8c4bc 50%, #b8b4ac 100%);
+  border: 1px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow:
+    inset 1px 1px 0 rgba(255,255,255,0.9),
+    inset -1px -1px 0 rgba(0,0,0,0.15);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #eceae6 0%, #d4d0c8 50%, #c4c0b8 100%);
+}
+::-webkit-scrollbar-button {
+  display: block;
+  height: 17px;
+  background: linear-gradient(to bottom, #e0deda 0%, #c8c4bc 50%, #b8b4ac 100%);
+  border: 1px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.9);
+}
+::-webkit-scrollbar-button:hover {
+  background: linear-gradient(to bottom, #eceae6 0%, #d4d0c8 50%, #c4c0b8 100%);
+}
+::-webkit-scrollbar-corner {
+  background: #d4d0c8;
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: #003300;
+  color: #f0f0f0;
+}
+
+/* ---- Links ---- */
+a {
+  color: #f0f0f0;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #007700;
+}
+
+/* ---- Headings ---- */
+h1 {
+  font-family: var(--font-pixel);
+  color: #f0f0f0;
+}
+h2, h3 {
+  color: #f0f0f0;
+  font-family: var(--font-mono);
+}
+
+/* ---- Layout ---- */
+.page-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 28px 28px 80px;
+}
+
+/* Hide titlebar buttons inside page content — they belong only on the main App window */
+.page-container .xp-titlebar-buttons {
+  display: none !important;
+}
+
+/* Dark window bodies inside main page content */
+.page-container .xp-window-body {
+  background: #0a0a0a;
+  color: #c8c8c8;
+}
+
+/* Strip XP chrome from page content blocks — keep only nav bar */
+.page-container .xp-window {
+  border: 1px solid #003300;
+  border-top-color: #003300;
+  border-left-color: #003300;
+  border-right-color: #001a00;
+  border-bottom-color: #001a00;
+  box-shadow: none;
+  background: #0a0a0a;
+}
+
+.page-container .xp-titlebar {
+  background: #001a00;
+  border-bottom: 1px solid #003300;
+  color: #7ab87a;
+  text-shadow: none;
+  font-family: var(--font-mono);
+  letter-spacing: 1px;
+}
+
+/* Base readable size for window content */
+.xp-window-body {
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+/* ---- Body Mode Classes ---- */
+
+/* Night Mode: intensify everything */
+body.night-mode::before {
+  opacity: 0.10;
+}
+body.night-mode::after {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(20, 0, 0, 0.9) 100%
+  );
+  opacity: 0.6;
+}
+body.night-mode {
+  --color-primary: #00ff00;
+  color: #00ff00;
+  filter: hue-rotate(10deg) contrast(1.1);
+}
+
+/* Invert Mode */
+body.invert-mode {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Scramble Mode */
+@keyframes scramble-clip {
+  0%   { clip-path: inset(40% 0 61% 0); }
+  10%  { clip-path: inset(92% 0 1% 0); }
+  20%  { clip-path: inset(43% 0 1% 0); }
+  30%  { clip-path: inset(25% 0 58% 0); }
+  40%  { clip-path: inset(54% 0 7% 0); }
+  50%  { clip-path: inset(58% 0 43% 0); }
+  60%  { clip-path: inset(20% 0 92% 0); }
+  70%  { clip-path: inset(78% 0 19% 0); }
+  80%  { clip-path: inset(46% 0 84% 0); }
+  90%  { clip-path: inset(15% 0 74% 0); }
+  100% { clip-path: inset(40% 0 61% 0); }
+}
+body.scramble-mode * {
+  animation: scramble-clip 0.15s steps(1) infinite;
+}
+
+/* Idle Mode — no shake, just subtle dim */
+body.idle-mode {
+  opacity: 0.97;
+}
+
+/* Glitch Active: RGB split only, no shake */
+body.glitch-active {
+  text-shadow:
+    -2px 0 #ff0000,
+     2px 0 #0000ff;
+}
+
+/* Horror page shake — only for /members/13 and /classified */
+@keyframes horror-shake {
+  0%   { transform: translate(0, 0) rotate(0deg); }
+  10%  { transform: translate(-3px, 2px) rotate(-0.4deg); }
+  20%  { transform: translate(3px, -2px) rotate(0.4deg); }
+  30%  { transform: translate(-2px, 3px) rotate(-0.3deg); }
+  40%  { transform: translate(2px, -3px) rotate(0.3deg); }
+  50%  { transform: translate(-3px, 1px) rotate(-0.4deg); }
+  60%  { transform: translate(3px, 2px) rotate(0.2deg); }
+  70%  { transform: translate(-2px, -2px) rotate(0deg); }
+  80%  { transform: translate(2px, 3px) rotate(-0.3deg); }
+  90%  { transform: translate(-1px, 0px) rotate(0.2deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+body.horror-shake {
+  animation: horror-shake 0.6s ease-out 1 forwards;
+}
+
+/* Redacted / black-bar censorship — permanently hidden, no reveal */
+.redacted {
+  background: #000;
+  color: #000;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+  padding: 0 4px;
+}
+
+/* Visible redacted — white ████ (censored but you can see it happened) */
+.redacted-white {
+  color: #e0e0e0;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+  padding: 0 2px;
+  letter-spacing: 1px;
+}
+
+/* Visible redacted — red ████ (alarming/classified) */
+.redacted-red {
+  color: #cc2200;
+  user-select: none;
+  pointer-events: none;
+  cursor: default;
+  padding: 0 2px;
+  letter-spacing: 1px;
+}
+
+/* Ghost text — invisible until hover */
+.ghost-text {
+  color: transparent;
+  cursor: default;
+}
+.ghost-text:hover {
+  color: #888888;
+}
+
+/* Red ghost text — invisible until hover, reveals red */
+.ghost-text-red {
+  color: transparent;
+  cursor: default;
+}
+.ghost-text-red:hover {
+  color: #cc2200;
+}
+
+/* Mosaic / pixelate-like blur */
+.mosaic {
+  filter: blur(8px) contrast(200%);
+}
+
+/* Corrupted text: shifting spacing + skew */
+@keyframes corrupted {
+  0%   { letter-spacing: 0px;   transform: skewX(0deg); }
+  10%  { letter-spacing: 4px;   transform: skewX(-3deg); }
+  20%  { letter-spacing: -2px;  transform: skewX(2deg); }
+  30%  { letter-spacing: 6px;   transform: skewX(-1deg); }
+  40%  { letter-spacing: 0px;   transform: skewX(3deg); }
+  50%  { letter-spacing: -4px;  transform: skewX(0deg); }
+  60%  { letter-spacing: 2px;   transform: skewX(-2deg); }
+  70%  { letter-spacing: 8px;   transform: skewX(1deg); }
+  80%  { letter-spacing: -2px;  transform: skewX(-3deg); }
+  90%  { letter-spacing: 0px;   transform: skewX(2deg); }
+  100% { letter-spacing: 0px;   transform: skewX(0deg); }
+}
+.corrupted-text {
+  display: inline-block;
+  animation: corrupted 1.2s steps(1) infinite;
+}
+
+/* Classic blink */
+@keyframes blink {
+  50% { visibility: hidden; }
+}
+.blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Marquee container */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Hidden pixel — slightly larger for discoverability, same hover behavior */
+.hidden-pixel {
+  position: fixed;
+  bottom: 26px;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  cursor: crosshair;
+  z-index: 50;
+  background: transparent;
+}
+
+/* ============================================================
+   SCROLL REVEAL — shared across views
+   useScrollReveal composable adds sr-{effect} then sr-revealed
+   ============================================================ */
+.sr-fade-up {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.15s steps(2), transform 0.15s steps(2);
+}
+.sr-fade-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.1s steps(1), transform 0.1s steps(1);
+}
+.sr-fade-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.1s steps(1), transform 0.1s steps(1);
+}
+.sr-scale-in {
+  opacity: 0;
+  transform: scale(0.93);
+  transition: opacity 0.15s steps(2), transform 0.15s steps(2);
+}
+.sr-flicker {
+  opacity: 0;
+  transition: opacity 0.08s steps(4);
+}
+.sr-revealed {
+  opacity: 1 !important;
+  transform: none !important;
+}
