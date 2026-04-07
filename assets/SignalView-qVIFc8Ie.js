@@ -1,4 +1,4 @@
-import{d,c as u,m as h,e as o,f as l,h as e,g as I,F as r,l as m,o as s,_ as f}from"./index-CWvaEDvg.js";const g={class:"signal-page"},p={class:"signal-pre"},y=d({__name:"SignalView",setup(w){const{locale:c}=u(),{initAudio:a,playLowFreq:i}=m();return h(()=>{try{a(),i(18,8)}catch{}const t=()=>{a(),i(18,8),document.removeEventListener("click",t)};document.addEventListener("click",t,{once:!0})}),(t,n)=>(s(),o("div",g,[l("pre",p,[n[0]||(n[0]=e("",-1)),I(c)!=="zh-TW"?(s(),o(r,{key:0},[e(`
+import{d,c as u,m as h,e as o,f as l,h as e,g as I,F as r,l as m,o as s,_ as f}from"./index-Dnj6NbN4.js";const g={class:"signal-page"},p={class:"signal-pre"},y=d({__name:"SignalView",setup(w){const{locale:c}=u(),{initAudio:a,playLowFreq:i}=m();return h(()=>{try{a(),i(18,8)}catch{}const t=()=>{a(),i(18,8),document.removeEventListener("click",t)};document.addEventListener("click",t,{once:!0})}),(t,n)=>(s(),o("div",g,[l("pre",p,[n[0]||(n[0]=e("",-1)),I(c)!=="zh-TW"?(s(),o(r,{key:0},[e(`
 TRANSMISSION LOG — MEMBER 08 (Mia Harlow)
 Document Type: Personal Field Note (unsent)
 Filed Under: ██████████████
