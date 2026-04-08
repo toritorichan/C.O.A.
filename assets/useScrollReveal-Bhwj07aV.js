@@ -1,0 +1,1 @@
+import{m as a,n as c}from"./index-Bimxcxvx.js";function d(t,n="fade-up",o=.07){let e=null;a(()=>{e=new IntersectionObserver(s=>{s.forEach(r=>{r.isIntersecting&&(r.target.classList.add("sr-revealed"),e?.unobserve(r.target))})},{threshold:o}),document.querySelectorAll(t).forEach(s=>{s.classList.add(`sr-${n}`),e.observe(s)})}),c(()=>e?.disconnect())}export{d as u};
