@@ -279,6 +279,13 @@ function handleHiddenPixel() {
     <div class="hidden-pixel" @mouseover="handleHiddenPixel" aria-hidden="true" :title="t('home.pixel_easter_egg')"></div>
 
   </div>
+
+    <!-- Tiny system footer hint -->
+    <div class="sys-footer-hint" aria-hidden="true">
+      system terminal : /admin | signal active : 038.█ MHz | access log : on
+    </div>
+
+  </div>
 </template>
 
 <style scoped>
@@ -486,5 +493,22 @@ function handleHiddenPixel() {
   color: #4a7a4a;
   margin-bottom: 16px;
   font-family: "Courier New", monospace;
+}
+
+/* Tiny system footer hint — barely visible, rewards careful readers */
+.sys-footer-hint {
+  text-align: center;
+  font-family: "Courier New", monospace;
+  font-size: 9px;
+  color: #0d1f0d;
+  opacity: 0.45;
+  letter-spacing: 0.5px;
+  padding: 4px 0 12px;
+  user-select: none;
+  transition: opacity 0.4s;
+}
+.sys-footer-hint:hover {
+  opacity: 1;
+  color: #336633;
 }
 </style>

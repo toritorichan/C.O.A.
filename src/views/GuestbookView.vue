@@ -16,7 +16,7 @@ interface GuestEntry {
 }
 
 const STORAGE_KEY = 'coa-guestbook'
-const SEED_VERSION = 'v9'
+const SEED_VERSION = 'v10'
 const SEED_VERSION_KEY = 'coa-guestbook-seed-ver'
 
 const _today = new Date()
@@ -97,6 +97,11 @@ const SEEDED: GuestEntry[] = [
     id: 'seed-entity-02', nickname: '[C.O.A. 管理員 / Administrator]', timestamp: '2007-03-17 03:17', isSeeded: true,
     message: '[CYCLE STATUS UPDATE] Elapsed time since last external contact: 1340 days. All twelve units operational. Frequency calibration: complete. Thirteenth node: unoccupied. Patience protocol: active. Association is open. Association is waiting.',
     messageZH: '【循環狀態更新】距上次外部接觸已過：1340天。十二個單元均在運作中。頻率校準：完成。第十三節點：未佔用。等待協議：啟動。同好會開放中。同好會等待中。',
+  },
+  {
+    id: 'seed-mia-last', nickname: 'Mia H.', timestamp: '2004-02-19 03:17', isSeeded: true,
+    message: "If anyone finds this message -- I'm leaving. I chose this. Don't look for me. But if you need to understand what happened, the last thing I recorded is still there. /signal/038. Don't go alone.",
+    messageZH: '如果有人看到這則訊息——我要走了。這是我選擇的。不要找我。但如果你需要了解發生了什麼，我最後記錄的東西還在那裡。/signal/038。不要一個人去。',
   },
   {
     id: 'seed-entity-03', nickname: '[C.O.A. 管理員 / Administrator]', timestamp: '2011-07-13 03:17', isSeeded: true,
