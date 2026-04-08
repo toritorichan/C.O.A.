@@ -1,4 +1,4 @@
-import{d as g,c as _,m as E,n as y,e as u,f as m,h as T,t as b,i as C,l as N,k as h,q as f,o as p,_ as S}from"./index-DDg6Y0j8.js";const w={class:"classified-page"},A={class:"classified-terminal"},I={class:"terminal-text"},R={key:0,class:"cursor blink"},k=g({__name:"ClassifiedView",setup(L){const{t,locale:o}=_(),{initAudio:a,playLowFreq:i,playReversedSignal:r}=N(),v=h(()=>o.value==="zh-TW"?`${t("classified.title")}
+import{d as g,c as _,m as E,n as y,e as u,f as m,h as T,t as b,i as C,l as N,k as h,q as f,o as p,_ as S}from"./index-CpQ80E_b.js";const w={class:"classified-page"},A={class:"classified-terminal"},I={class:"terminal-text"},R={key:0,class:"cursor blink"},k=g({__name:"ClassifiedView",setup(L){const{t,locale:o}=_(),{initAudio:a,playLowFreq:i,playReversedSignal:r}=N(),v=h(()=>o.value==="zh-TW"?`${t("classified.title")}
 ${t("classified.subtitle")}
 文件編號：COA-1998-001-█
 機密等級：██████
