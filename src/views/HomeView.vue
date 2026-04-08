@@ -278,11 +278,9 @@ function handleHiddenPixel() {
     <!-- Hidden 1px easter egg trigger -->
     <div class="hidden-pixel" @mouseover="handleHiddenPixel" aria-hidden="true" :title="t('home.pixel_easter_egg')"></div>
 
-  </div>
-
     <!-- Tiny system footer hint -->
     <div class="sys-footer-hint" aria-hidden="true">
-      system terminal : /admin | signal active : 038.█ MHz | access log : on
+      system terminal : /admin &nbsp;|&nbsp; signal active : 038.█ MHz &nbsp;|&nbsp; access log : on
     </div>
 
   </div>
