@@ -97,6 +97,7 @@ function statusLabel(status: Member['status']): string {
           <p class="page-notice blink">{{ t('members.notice') }}</p>
         </div>
 
+        <div class="table-scroll-wrapper">
         <table class="member-table" cellspacing="0" cellpadding="0">
           <thead>
             <tr>
@@ -201,6 +202,7 @@ function statusLabel(status: Member['status']): string {
             </tr>
           </tbody>
         </table>
+        </div> <!-- /table-scroll-wrapper -->
 
         <div style="font-size: 11px; color: #002200; margin-top: 24px; text-align: center; user-select: none;">
           13 founding members total | Last reviewed: ████
@@ -306,9 +308,17 @@ h1 { color: #f0f0f0; font-size: 1.6rem; letter-spacing: 4px; margin-bottom: 8px;
 .broken-link { pointer-events: none; }
 
 /* ── Responsive ── */
+.table-scroll-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
 .td-dates-mobile { display: none; }
 
 @media (max-width: 640px) {
+  /* 縮小頁面邊距 */
+  :deep(.page-container) { padding: 12px 8px 60px; }
+
   /* 隱藏日期兩欄 */
   .th-joined, .td-joined,
   .th-lastseen, .td-lastseen { display: none; }
@@ -320,7 +330,6 @@ h1 { color: #f0f0f0; font-size: 1.6rem; letter-spacing: 4px; margin-bottom: 8px;
     font-family: monospace;
     color: #5a7a5a;
     margin-top: 2px;
-    letter-spacing: 0;
   }
 
   .member-table { font-size: 11px; }
@@ -331,7 +340,7 @@ h1 { color: #f0f0f0; font-size: 1.6rem; letter-spacing: 4px; margin-bottom: 8px;
   .t-photo { width: 36px; height: 46px; }
 
   .td-id { width: 24px; font-size: 10px; }
-  .td-name { min-width: 70px; }
+  .td-name { min-width: 90px; }
   .td-status { width: 70px; font-size: 10px; }
   .td-link { width: 64px; }
   .t-btn { font-size: 9px; padding: 2px 4px; }
