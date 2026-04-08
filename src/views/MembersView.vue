@@ -103,8 +103,8 @@ function statusLabel(status: Member['status']): string {
               <th>#</th>
               <th>{{ t('members.photo_col') }}</th>
               <th>{{ t('members.name_col') }}</th>
-              <th>{{ t('members.joined') }}</th>
-              <th>{{ t('members.last_seen') }}</th>
+              <th class="th-joined">{{ t('members.joined') }}</th>
+              <th class="th-lastseen">{{ t('members.last_seen') }}</th>
               <th>{{ t('members.status_col') }}</th>
               <th>{{ t('members.file_col') }}</th>
             </tr>
@@ -137,6 +137,11 @@ function statusLabel(status: Member['status']): string {
                 <span v-else-if="member.status === 'unknown' && member.id === 13 && member13StoredName" style="color:#ccffaa; font-weight:bold;">{{ member13StoredName }}</span>
                 <span v-else-if="member.status === 'unknown'" class="corrupted-text">{{ member13Codename }}</span>
                 <span v-else>{{ member.codename }}</span>
+                <!-- 手機版：把日期資訊折進名字欄 -->
+                <div class="td-dates-mobile">
+                  <span v-if="member.status === 'sealed'" class="redacted">{{ member.joinDate }} / {{ member.lastSeen }}</span>
+                  <span v-else>{{ member.joinDate }} → {{ member.lastSeen }}</span>
+                </div>
                 <div v-if="member.displayNote" class="t-note">{{ member.displayNote }}</div>
                 <div v-if="member.id === 13 && member13StoredName" class="t-note ghost-text-red" style="margin-top:4px;">
                   <template v-if="locale !== 'zh-TW'">Seventh Cycle: 13/13. Integration confirmed.</template>
@@ -153,13 +158,13 @@ function statusLabel(status: Member['status']): string {
               </td>
 
               <!-- Joined -->
-              <td class="td-mono">
+              <td class="td-mono td-joined">
                 <span v-if="member.status === 'sealed'" class="redacted">{{ member.joinDate }}</span>
                 <span v-else>{{ member.joinDate }}</span>
               </td>
 
               <!-- Last Seen -->
-              <td class="td-mono">
+              <td class="td-mono td-lastseen">
                 <span v-if="member.status === 'sealed'" class="redacted">{{ member.lastSeen }}</span>
                 <span v-else>{{ member.lastSeen }}</span>
               </td>
@@ -299,4 +304,38 @@ h1 { color: #f0f0f0; font-size: 1.6rem; letter-spacing: 4px; margin-bottom: 8px;
 }
 .t-btn { font-size: 10px; padding: 2px 6px; white-space: nowrap; }
 .broken-link { pointer-events: none; }
+
+/* ── Responsive ── */
+.td-dates-mobile { display: none; }
+
+@media (max-width: 640px) {
+  /* 隱藏日期兩欄 */
+  .th-joined, .td-joined,
+  .th-lastseen, .td-lastseen { display: none; }
+
+  /* 在名字欄顯示日期 */
+  .td-dates-mobile {
+    display: block;
+    font-size: 9px;
+    font-family: monospace;
+    color: #5a7a5a;
+    margin-top: 2px;
+    letter-spacing: 0;
+  }
+
+  .member-table { font-size: 11px; }
+  .member-table th { padding: 4px 5px; font-size: 11px; }
+  .member-table td { padding: 6px 5px; }
+
+  .td-photo { width: 44px; padding: 3px 4px !important; }
+  .t-photo { width: 36px; height: 46px; }
+
+  .td-id { width: 24px; font-size: 10px; }
+  .td-name { min-width: 70px; }
+  .td-status { width: 70px; font-size: 10px; }
+  .td-link { width: 64px; }
+  .t-btn { font-size: 9px; padding: 2px 4px; }
+  .t-note { font-size: 9px; }
+  h1 { font-size: 1.2rem; letter-spacing: 2px; }
+}
 </style>
