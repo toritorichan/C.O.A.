@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import { RouterView, RouterLink, useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 import { useVisitorStore } from '@/stores/visitorStore'
@@ -19,6 +19,10 @@ const time = useTimeAware()
 const _sync = useDataSync()
 const route = useRoute()
 const memory = useVisitorMemory()
+
+const navOpen = ref(false)
+function toggleNav() { navOpen.value = !navOpen.value }
+function closeNav() { navOpen.value = false }
 
 let cleanupEggs: (() => void) | null = null
 let titleTimer: ReturnType<typeof setTimeout> | null = null
@@ -110,14 +114,22 @@ onUnmounted(() => {
         </span>
         <div class="xp-titlebar-buttons" style="display:flex;align-items:center;gap:3px;">
           <LangSwitch />
+          <!-- Hamburger button: mobile only -->
+          <button
+            class="xp-btn-hamburger"
+            :class="{ active: navOpen }"
+            @click.stop="toggleNav"
+            :aria-label="navOpen ? 'Close menu' : 'Open menu'"
+            :aria-expanded="navOpen"
+          >{{ navOpen ? '✕' : '☰' }}</button>
           <button class="xp-btn-min">_</button>
           <button class="xp-btn-max">□</button>
           <button class="xp-btn-close">×</button>
         </div>
       </div>
 
-      <!-- Navigation -->
-      <nav class="xp-nav">
+      <!-- Desktop navigation (always visible on wide screens) -->
+      <nav class="xp-nav xp-nav-desktop">
         <RouterLink to="/">{{ t('nav.home') }}</RouterLink>
         <span class="nav-sep">▪</span>
         <RouterLink to="/diary">{{ t('nav.diary') }}</RouterLink>
@@ -130,6 +142,17 @@ onUnmounted(() => {
         <span class="nav-sep">▪</span>
         <RouterLink to="/guestbook">{{ t('nav.guestbook') }}</RouterLink>
         <span class="nav-sep">▪</span>
+        <RouterLink to="/links">{{ t('nav.links') }}</RouterLink>
+      </nav>
+
+      <!-- Mobile nav dropdown -->
+      <nav v-if="navOpen" class="xp-nav-mobile" @click="closeNav">
+        <RouterLink to="/">{{ t('nav.home') }}</RouterLink>
+        <RouterLink to="/diary">{{ t('nav.diary') }}</RouterLink>
+        <RouterLink to="/aliens">{{ t('nav.aliens') }}</RouterLink>
+        <RouterLink to="/history">{{ t('nav.history') }}</RouterLink>
+        <RouterLink to="/members">{{ t('nav.members') }}</RouterLink>
+        <RouterLink to="/guestbook">{{ t('nav.guestbook') }}</RouterLink>
         <RouterLink to="/links">{{ t('nav.links') }}</RouterLink>
       </nav>
     </div>

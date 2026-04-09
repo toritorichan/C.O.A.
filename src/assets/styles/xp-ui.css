@@ -211,6 +211,71 @@
   margin-bottom: -2px;
 }
 
+/* ---- Hamburger Button (mobile only) ---- */
+.xp-btn-hamburger {
+  display: none; /* hidden on desktop */
+  width: 22px;
+  height: 13px;
+  font-size: 9px;
+  line-height: 1;
+  border: 1px solid;
+  border-top-color: #ffffff;
+  border-left-color: #ffffff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  background: linear-gradient(to bottom, #e0deda 0%, #c0bdb8 50%, #a0a09a 100%);
+  color: #000;
+  cursor: pointer;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.xp-btn-hamburger.active {
+  border-top-color: #404040;
+  border-left-color: #404040;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  background: linear-gradient(to bottom, #a0a09a 0%, #c0bdb8 100%);
+}
+
+/* ---- Mobile Nav Dropdown ---- */
+.xp-nav-mobile {
+  display: none;
+  flex-direction: column;
+  background: #0a0a0a;
+  border-bottom: 2px solid #003300;
+}
+.xp-nav-mobile a {
+  display: block;
+  padding: 10px 16px;
+  color: #c0c0c0;
+  text-decoration: none;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #111;
+}
+.xp-nav-mobile a:hover,
+.xp-nav-mobile a.router-link-active {
+  background: #001100;
+  color: #00ff00;
+}
+
+/* ---- Responsive Breakpoint ---- */
+@media (max-width: 640px) {
+  /* Show hamburger, hide desktop nav */
+  .xp-btn-hamburger { display: inline-flex; }
+  .xp-nav-desktop { display: none; }
+
+  /* Show mobile nav when toggled */
+  .xp-nav-mobile { display: flex; }
+
+  /* Shrink title bar text */
+  .xp-titlebar { font-size: 10px; }
+}
+
 /* ---- XP Status Bar ---- */
 .xp-statusbar {
   background: #c0c0c0;
