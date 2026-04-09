@@ -195,6 +195,13 @@ function handleHiddenPixel() {
                   <template v-else>第3次觀測活動資料已封存。共記錄7個異常光源。所有資料已歸檔。第4次觀測日期：待定。成員應出席。</template>
                 </td>
               </tr>
+              <tr style="background:#030000; border-top:1px solid #1a0000;">
+                <td class="home-post-date" style="color:#440000; font-family:monospace; font-size:11px;">[SYS]&nbsp;████-██-██</td>
+                <td class="home-post-content" style="color:#3a1515; font-size:11px; font-family:monospace;">
+                  <template v-if="locale !== 'zh-TW'">[ERROR] Member record integrity check failed. Orphaned record detected. Recovery path: <RouterLink to="/member/00" style="color:#660000; text-decoration:underline dotted; font-family:monospace;">/member/00</RouterLink> — administrator action required.</template>
+                  <template v-else>[錯誤] 成員記錄完整性檢查失敗。偵測到孤立記錄。復原路徑：<RouterLink to="/member/00" style="color:#660000; text-decoration:underline dotted; font-family:monospace;">/member/00</RouterLink> — 需要管理員處理。</template>
+                </td>
+              </tr>
               <tr class="home-post-row home-post-warn">
                 <td class="home-post-date" style="color:#886600;">████-██-██</td>
                 <td class="home-post-content" style="color:#886600;">

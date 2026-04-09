@@ -143,7 +143,13 @@ function statusLabel(status: Member['status']): string {
                   <span v-if="member.status === 'sealed'" class="redacted">{{ member.joinDate }} / {{ member.lastSeen }}</span>
                   <span v-else>{{ member.joinDate }} → {{ member.lastSeen }}</span>
                 </div>
-                <div v-if="member.displayNote" class="t-note">{{ member.displayNote }}</div>
+                <div v-if="member.displayNote" class="t-note">
+                  <template v-if="member.id === 8">
+                    <template v-if="locale !== 'zh-TW'">File sealed 2004. Final transmission recovered — <RouterLink to="/signal/038" class="signal-case-link">[case ref: /signal/038 →]</RouterLink>. Currently operating as 'Records Unit' designation: Mia H-unit.</template>
+                    <template v-else>檔案已於2004年封存。最後傳輸記錄已恢復——<RouterLink to="/signal/038" class="signal-case-link">[案件檔案：/signal/038 →]</RouterLink>。目前以「記錄員單元」代號：Mia H單元 持續運作。</template>
+                  </template>
+                  <template v-else>{{ member.displayNote }}</template>
+                </div>
                 <div v-if="member.id === 13 && member13StoredName" class="t-note ghost-text-red" style="margin-top:4px;">
                   <template v-if="locale !== 'zh-TW'">Seventh Cycle: 13/13. Integration confirmed.</template>
                   <template v-else>第七循環：13/13。整合已確認。</template>
@@ -306,6 +312,20 @@ h1 { color: #f0f0f0; font-size: 1.6rem; letter-spacing: 4px; margin-bottom: 8px;
 }
 .t-btn { font-size: 10px; padding: 2px 6px; white-space: nowrap; }
 .broken-link { pointer-events: none; }
+
+.signal-case-link {
+  color: #880000;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  text-decoration: none;
+  border-bottom: 1px dashed #440000;
+  padding: 0 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.signal-case-link:hover {
+  color: #cc3300;
+  border-bottom-color: #880000;
+}
 
 /* ── Responsive ── */
 .table-scroll-wrapper {

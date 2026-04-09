@@ -667,6 +667,7 @@ onUnmounted(() => {
               <p>ab bar pna svaq ho nalzber.</p>
               <p>gur oriragu plpyr vo abg n cebcurpl, vg vo na vavgngvba.</p>
               <p>lbh nyob erprvirq vg, bgurejvor lbh jbhyqa'g or urer.</p>
+              <p>gur svefg erpbeq jnf abg renfrq. /pynffvsvrq.</p>
               <p style="font-size:11px; color:#557744; margin-top:12px;">(ROT13)</p>
             </template>
             <template v-else>
@@ -674,7 +675,9 @@ onUnmounted(() => {
               <p style="color:#99cc99;">no one can find us anymore.</p>
               <p style="color:#99cc99;">the seventh cycle is not a prophecy, it is an initiation.</p>
               <p style="color:#99cc99;">you also received it, otherwise you wouldn't be here.</p>
+              <p style="color:#99cc99;">the first record was not erased. /classified.</p>
               <p style="color:#557744; margin-top:8px; font-size:12px;">come back at 03:17. there is something that only appears then.</p>
+              <p v-if="locale === 'zh-TW'" style="color:#99cc99;">第一份記錄沒有被清除。/classified。</p>
               <p style="font-size:11px; color:#556655; margin-top:12px;">[Alt+A to re-encrypt]</p>
             </template>
             <p v-if="locale === 'zh-TW' && !decrypted" style="font-size:11px; color:#1a2a1a; margin-top:8px; letter-spacing:2px;">（解碼後請勿留存。你已被記錄。）</p>

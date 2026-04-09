@@ -16,7 +16,7 @@ interface GuestEntry {
 }
 
 const STORAGE_KEY = 'coa-guestbook'
-const SEED_VERSION = 'v10'
+const SEED_VERSION = 'v11'
 const SEED_VERSION_KEY = 'coa-guestbook-seed-ver'
 
 const _today = new Date()
@@ -123,6 +123,11 @@ const SEEDED: GuestEntry[] = [
     id: 'seed-08', nickname: 'xiao_wu_123', nicknameZH: '吳', timestamp: '2013-07-14 00:02', isSeeded: true,
     message: 'My friend sent me this link saying it\'s some kind of fan club website. I started watching it last night and couldn\'t stop, couldn\'t sleep well.',
     messageZH: '朋友傳給我這個連結 說是什麼同好會的網站？昨天晚上開始看就停不下來 睡不好',
+  },
+  {
+    id: 'seed-classified-hint', nickname: 'archive_dig', nicknameZH: '數位考古', timestamp: '2018-06-14 02:44', isSeeded: true,
+    message: "been going through old internet archives. found a reference buried in this site. if you look at the page source... there\'s a comment pointing to something called /classified. formatting looks like an actual incident report. might be nothing. probably not nothing.",
+    messageZH: '最近在翻舊的網路存檔。在這個網站裡找到了一份被埋起來的記述。如果你看頁面原始碼……有個注釋指向一個叫 /classified 的東西。格式看起來像真正的事故報告。可能沒什麼。大概不是沒什麼。',
   },
   {
     id: 'seed-09', nickname: 'just_passing_by_lol', nicknameZH: '路人甲', timestamp: '2023-11-07 14:29', isSeeded: true,
